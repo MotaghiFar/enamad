@@ -123,15 +123,17 @@
                        0 0 0 1 0\"></feColorMatrix>";
 			}
 
-			$("#enamad-css")
-				.append("\
-					.enamad-ifreame {\
-						filter: url(#enamad-filter);\
-						-webkit-filter: " + style_webkit_filter +";\
-						filter: " + style_spec_filter +";\
-					}\
-				");
 
+			if ( is_supports_css3_filter() ) {
+				$("#enamad-css")
+					.append("\
+						.enamad-ifreame {\
+							filter: url(#enamad-filter);\
+							-webkit-filter: " + style_webkit_filter +";\
+							filter: " + style_spec_filter +";\
+						}\
+					");
+			}
 
 			if ( !is_supports_css3_filter() && is_supports_svg_filter() ) {
 				var enamadElement = $( this );
